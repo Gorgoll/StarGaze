@@ -1,6 +1,6 @@
 import LinearInterpolation from "../helpers/linearInterpolation.tsx"
 import {type InterpolatedTheme, THEMES} from "../theme/theme.tsx";
-import {STARS, CLOUDS} from "./props.tsx";
+import {CLOUDS, STARS} from "./props.tsx";
 import useDecimalHour from "./dateHandler.tsx";
 
 function getThemeAtHour(h: number): InterpolatedTheme {
@@ -61,12 +61,12 @@ const MainBackground = () => {
                 ))}
             </div>
             {/* Clouds */}
+          <div>
             {visibleClouds.map((c) => (
                 <div key={c.id} style={{
                     position: "absolute",
                     top: c.top,
                     left: 0,
-                    opacity: c.opacity,
                     animation: `driftCloud ${c.speed} ${c.delay} linear infinite`,
                 }}>
                     <div style={{
@@ -84,6 +84,7 @@ const MainBackground = () => {
                     </div>
                 </div>
             ))}
+          </div>
 
             <style>{`
                 @keyframes twinkle {

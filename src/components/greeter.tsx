@@ -1,12 +1,10 @@
-import { motion } from "motion/react"
-import GreeterBackground from "../hooks/greeterBackground.tsx";
+import {motion} from "motion/react"
 
 const line1 = "sometimes all you have to do is look up"
 
-const Greeter = () => {
+export default function Greeter() {
     return (
         <>
-        {<GreeterBackground/>}
         <div style={{
             display: "flex",
             flexDirection: "column",
@@ -41,8 +39,10 @@ const Greeter = () => {
                 display: "flex",
                 gap: "2px",
                 whiteSpace: "pre",
-                paddingTop: "1.5em",
+                paddingTop: "2em",
+                maxWidth: "100%",
             }}>
+                {/* TODO fix text overflowing on small screens */}
                 {line1.split("").map((char, i) => (
                     <motion.span
                         key={i}
@@ -60,5 +60,3 @@ const Greeter = () => {
         </>
     )
 }
-
-export default Greeter
