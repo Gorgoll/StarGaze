@@ -94,7 +94,18 @@ export default function QuestionFeed({ currentUser }: Props) {
 			`}</style>
 			 
 			 {/* Feed */}
-			 <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12, padding: "1.5rem" }}>
+			 <div
+				  style={{
+					  display: "grid",
+					  gridTemplateColumns: "1fr",
+					  gap: 12,
+					  padding: "1.5rem",
+					  width: "100%",
+					  maxWidth: "850px",
+					  margin: "0 auto",
+					  boxSizing: "border-box",
+				  }}
+			 >
 				 <AnimatePresence>
 					 {questions.map(q => (
 							<motion.div
@@ -143,9 +154,11 @@ export default function QuestionFeed({ currentUser }: Props) {
 								 transition={{ duration: 0.26, ease: [0.4, 0, 0.2, 1] }}
 								 style={{
 									 position: "fixed",
-									 top: "10vh",
-									 transform: "translate(-50%, -50%)",
-									 width: "90%",
+									 top: "50%",
+									 left: "50%",
+									 translateX: "-50%",
+									 translateY: "-50%",
+									 width: "min(90%, 600px)",
 									 maxHeight: "70vh",
 									 backgroundColor: theme.backgroundColor,
 									 border: `0.5px solid ${theme.borderColor}`,
