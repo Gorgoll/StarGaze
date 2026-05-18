@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { Engine, ISourceOptions } from "@tsparticles/engine";
-import MobileCheck from "../helpers/mobileCheck.tsx";
+import MobileCheck from "../../helpers/mobileCheck.tsx";
 
 export default function GreeterBackground() {
     const [init, setInit] = useState(false);

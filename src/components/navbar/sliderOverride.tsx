@@ -1,5 +1,5 @@
-import useStore from "../store";
-import type { InterpolatedUITheme } from "../theme/theme.tsx";
+import useStore from "../../store.ts";
+import type { InterpolatedUITheme } from "../../theme/theme.tsx";
 
 export default function SliderOverride({ theme }: { theme: InterpolatedUITheme }) {
 	const { isOverriding, toggle, sliderValue, setSliderValue } = useStore();

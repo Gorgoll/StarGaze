@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { login, register } from "../api.tsx";
-import type { User } from "../api.tsx";
+import { login, register } from "../../api.tsx";
+import type { User } from "../../api.tsx";
 
 const inputStyle = {
 	background: "rgba(10,18,32,0.7)",

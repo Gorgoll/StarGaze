@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { getPeriodName, interpolatedUITheme } from "../theme/theme";
+import { getPeriodName, interpolatedUITheme } from "../../theme/theme.tsx";
 
 // this should be moved to dateHandler.tsx
 function formatTime(timeStr: string) {

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import QuestionCard from "./questionCard.tsx";
-import MobileCheck from "../helpers/mobileCheck.tsx";
-import { interpolatedUITheme } from "../theme/theme.tsx";
+import MobileCheck from "../../helpers/mobileCheck.tsx";
+import { interpolatedUITheme } from "../../theme/theme.tsx";
 import { Plus } from "lucide-react";
-import useDecimalHour from "../hooks/dateHandler.tsx";
-import { getQuestions, getComments, postQuestion, postComment } from "../api.tsx";
-import type { User, Question, Comment } from "../api.tsx";
+import useDecimalHour from "../../hooks/dateHandler.tsx";
+import { getQuestions, getComments, postQuestion, postComment } from "../../api.tsx";
+import type { User, Question, Comment } from "../../api.tsx";
 
 interface Props {
 	currentUser: User | null;

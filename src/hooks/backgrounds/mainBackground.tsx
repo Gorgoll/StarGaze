@@ -1,7 +1,7 @@
-import LinearInterpolation from "../helpers/linearInterpolation.tsx"
-import {type InterpolatedTheme, THEMES} from "../theme/theme.tsx";
-import {CLOUDS, STARS} from "./props.tsx";
-import useDecimalHour from "./dateHandler.tsx";
+import LinearInterpolation from "../../helpers/linearInterpolation.tsx"
+import {type InterpolatedTheme, THEMES} from "../../theme/theme.tsx";
+import {CLOUDS, STARS} from "../props.tsx";
+import useDecimalHour from "../dateHandler.tsx";
 
 function getThemeAtHour(h: number): InterpolatedTheme {
     let lo = THEMES[0];

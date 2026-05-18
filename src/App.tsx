@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import LoginMenu from "./components/login.tsx";
-import Greeter from "./components/greeter.tsx";
+import LoginMenu from "./components/loginPage/login.tsx";
+import Greeter from "./components/loginPage/greeter.tsx";
 import MainPage from "./components/mainPage.tsx";
-import GreeterBackground from "./hooks/greeterBackground.tsx";
+import GreeterBackground from "./hooks/backgrounds/greeterBackground.tsx";
 import type { User } from "./api.ts";
 import {useGlobalInputSound, useGreeterBackgroundMusic, useMainBackgroundMusic} from "./hooks/music.tsx";
 
