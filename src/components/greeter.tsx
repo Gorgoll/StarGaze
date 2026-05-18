@@ -4,18 +4,19 @@ const line1 = "sometimes all you have to do is look up"
 
 export default function Greeter() {
     return (
-        <>
         <div style={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
+            padding: "1rem",
+            boxSizing: "border-box",
         }}>
             <motion.div
                 style={{
                     color: "white",
-                    fontSize: "6em",
+                    fontSize: "clamp(3rem, 10vw, 6rem)",
                 }}
                 animate={{
                     textShadow: [
@@ -32,17 +33,21 @@ export default function Greeter() {
             >
                 Stargaze
             </motion.div>
-
-            <div style={{
-                color: "whitesmoke",
-                fontSize: "2em",
-                display: "flex",
-                gap: "2px",
-                whiteSpace: "pre",
-                paddingTop: "2em",
-                maxWidth: "100%",
-            }}>
-                {/* TODO fix text overflowing on small screens */}
+            
+            <div
+               style={{
+                   color: "whitesmoke",
+                   fontSize: "clamp(1rem, 4vw, 2rem)",
+                   display: "flex",
+                   flexWrap: "wrap",
+                   justifyContent: "center",
+                   textAlign: "center",
+                   gap: "2px",
+                   paddingTop: "2em",
+                   maxWidth: "700px",
+                   overflowWrap: "break-word",
+               }}
+            >
                 {line1.split("").map((char, i) => (
                     <motion.span
                         key={i}
@@ -52,11 +57,10 @@ export default function Greeter() {
                             delay: i * 0.05
                         }}
                     >
-                        {char}
+                        {char === " " ? "\u00A0" : char}
                     </motion.span>
                 ))}
             </div>
         </div>
-        </>
     )
 }
