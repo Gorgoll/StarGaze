@@ -1,21 +1,23 @@
-import {create} from "zustand";
+import { create } from "zustand";
 
-// TODO make an actual use of it besides slider override behaviour
 interface StoreState {
-	isOverriding: boolean;
-	toggle: () => void;
+	sliderIsOverriding: boolean;
 	sliderValue: number;
+	navbarCurrentSearch: string;
+	
+	toggleSlider: () => void;
 	setSliderValue: (value: number) => void;
+	setNavbarSearch: (search: string) => void;
 }
 
 const useStore = create<StoreState>(set => ({
-	isOverriding: false,
-	toggle: () => set(state => ({isOverriding: !state.isOverriding})),
+	sliderIsOverriding: false,
 	sliderValue: 0,
-	setSliderValue: (value: number) => {
-		set({sliderValue: value})
-	}
+	navbarCurrentSearch: "",
+	
+	toggleSlider: () => set(state => ({ sliderIsOverriding: !state.sliderIsOverriding })),
+	setSliderValue: (value : number) => set({ sliderValue: value }),
+	setNavbarSearch: (search) => set({ navbarCurrentSearch: search }),
 }));
-
 
 export default useStore;

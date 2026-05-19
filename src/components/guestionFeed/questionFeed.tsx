@@ -7,6 +7,7 @@ import { Plus } from "lucide-react";
 import useDecimalHour from "../../hooks/dateHandler.tsx";
 import { getQuestions, getComments, postQuestion, postComment } from "../../api.tsx";
 import type { User, Question, Comment } from "../../api.tsx";
+import useStore from "../../store.ts";
 
 interface Props {
 	currentUser: User | null;
@@ -25,6 +26,11 @@ export default function QuestionFeed({ currentUser }: Props) {
 	const isMobile = MobileCheck();
 	const decimalHour = useDecimalHour();
 	const theme = interpolatedUITheme(decimalHour);
+	const search = useStore(s => s.navbarCurrentSearch);
+	
+	const filteredQuestions = search.trim()
+		 ? questions.filter(q => q.title.toLowerCase().includes(search.toLowerCase()))
+		 : questions;
 	
 	const activeQuestion = questions.find(q => q.id === activeId) ?? null;
 	const activeComments = activeId != null ? (comments[activeId] ?? []) : [];
@@ -107,7 +113,7 @@ export default function QuestionFeed({ currentUser }: Props) {
 				  }}
 			 >
 				 <AnimatePresence>
-					 {questions.map(q => (
+					 {filteredQuestions.map(q => (
 							<motion.div
 								 key={q.id}
 								 initial={{ opacity: 0, y: 16 }}
@@ -127,10 +133,10 @@ export default function QuestionFeed({ currentUser }: Props) {
 					 ))}
 				 </AnimatePresence>
 				 
-				 {questions.length === 0 && (
-						<div style={{ fontSize: 13, color: theme.textColor, opacity: 0.4, textAlign: "center", paddingTop: "3rem" }}>
-							No questions yet.
-						</div>
+				 {filteredQuestions.length === 0 && (
+					  <div style={{ fontSize: 13, color: theme.textColor, opacity: 0.4, textAlign: "center", paddingTop: "3rem" }}>
+						  {search.trim() ? "No questions match your search." : "No questions yet."}
+					  </div>
 				 )}
 			 </div>
 			 

@@ -3,16 +3,17 @@ import useDecimalHour, {useDateHandler} from "../../hooks/dateHandler.tsx";
 import SliderOverride from "./sliderOverride.tsx";
 import {useState} from "react";
 import MobileCheck from "../../helpers/mobileCheck.tsx";
+import useStore from "../../store.ts";
 
 const Navbar = () => {
-    // rewrite later
-    {/* TODO optimize calls with zustand */}
     const decimalHour = useDecimalHour();
     const rawTime = useDateHandler();
     const theme = interpolatedUITheme(decimalHour);
     const periodName = getPeriodName(Math.floor(decimalHour));
     const [menuOpen, setMenuOpen] = useState(false);
     const isMobile = MobileCheck()
+    const search = useStore(s => s.navbarCurrentSearch);
+    const setNavbarSearch = useStore(s => s.setNavbarSearch);
   
   
     return (
@@ -60,6 +61,8 @@ const Navbar = () => {
                <input
                   type="text"
                   placeholder="what would you like to find"
+                  value={search}
+                  onChange={e => setNavbarSearch(e.target.value)}
                   style={{
                     background: "transparent",
                     border: `1px solid ${theme.borderColor}`,
@@ -113,6 +116,8 @@ const Navbar = () => {
               <input
                  type="text"
                  placeholder="what would you like to find"
+                 value={search}
+                 onChange={e => setNavbarSearch(e.target.value)}
                  style={{
                    background: "transparent",
                    border: `1px solid ${theme.borderColor}`,

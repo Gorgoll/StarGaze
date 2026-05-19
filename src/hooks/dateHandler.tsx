@@ -1,7 +1,7 @@
 import useStore from "../store.ts";
 
 export function useDateHandler() {
-	const isOverriding = useStore(state => state.isOverriding);
+	const isOverriding = useStore(state => state.sliderIsOverriding);
 	
 	const localTime = getTimeOfDay()
 	const sliderTime = useSliderValueToFullDay()
