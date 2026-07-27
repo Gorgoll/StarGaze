@@ -35,14 +35,16 @@ function CardUI({ title, description, timeStr, decimalHour, commentCount, active
 	const theme = interpolatedUITheme(decimalHour);
 	
 	return (
-		 <div style={{
+		 <div
+			  className={"qc-card"}
+			  onClick={onOpen}
+			  style={{
 			 background: theme.backgroundColor,
 			 border: `0.5px solid ${theme.borderColor}`,
 			 borderRadius: 14,
 			 padding: "1.25rem 1.4rem",
 		 }}>
 			 <div
-					onClick={onOpen}
 					style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", cursor: "pointer", userSelect: "none" }}
 			 >
 				 <div style={{ flex: 1 }}>

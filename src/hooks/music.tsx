@@ -53,12 +53,14 @@ export function useGlobalInputSound() {
 	
 	useEffect(() => {
 		const handler = (e: MouseEvent) => {
-			if ((e.target as HTMLElement).closest('button')) {
+			const target = e.target as HTMLElement;
+			if (target.closest("button") || target.closest(".qc-card")) {
 				playClick();
 			}
 		};
 		
-		document.addEventListener('click', handler);
-		return () => document.removeEventListener('click', handler);
-	}, []);
+		document.addEventListener("click", handler);
+		
+		return () => document.removeEventListener("click", handler);
+	}, [playClick]);
 }
