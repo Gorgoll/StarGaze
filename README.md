@@ -1,8 +1,13 @@
-# Stargaze
+<div style="justify-items: center">
+<img src="./src/assets/favicon.png" alt="stargaze" style="width: 256px; height: 256px; padding: 0; margin: 0;" />
+
+<h1>Stargaze</h1>
 
 A blog / chat app that changes with the day.
 
 A small school project, built solo with a lot of love.
+
+</div>
 
 ---
 
@@ -15,6 +20,7 @@ A small school project, built solo with a lot of love.
 -  **Override time slider** — fully customize your experience
 -  **Search bar** to filter questions
 -  **Chill music and button click noises** that serve the purpose of enhancing your experience
+
 ## Contributing
 
 Pull requests are welcome.
