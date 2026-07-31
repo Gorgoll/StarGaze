@@ -1,6 +1,6 @@
 import LinearInterpolation from "../../helpers/linearInterpolation.tsx"
 import {type InterpolatedTheme, THEMES} from "../../theme/theme.tsx";
-import {CLOUDS, STARS} from "../props.tsx";
+import {CLOUDS, FALLING_STAR, STARS} from "../props.tsx";
 import useDecimalHour from "../dateHandler.tsx";
 
 function getThemeAtHour(h: number): InterpolatedTheme {
@@ -85,7 +85,39 @@ const MainBackground = () => {
                 </div>
             ))}
           </div>
-
+          <div
+             style={{
+               position: "fixed",
+               inset: 0,
+               zIndex: 0,
+               width: "100%",
+               height: "100%",
+               pointerEvents: "none",
+               overflow: "hidden",
+               opacity: 1,
+             }}
+          >
+            {FALLING_STAR.map((FS) => (
+               <div
+                  key={FS.id}
+                  style={{
+                    position: "absolute",
+                    left: "100vh",
+                    top: "50vh",
+                    width: "0.15rem",
+                    height: "30rem",
+                    borderRadius: "999px",
+                    background:
+                       "linear-gradient(to bottom, white, transparent)",
+                    opacity: FS.opacity,
+                    rotate: "120deg",
+                    scale: FS.scale,
+                    transformOrigin: "center",
+                    animation: `starfall ${FS.speed} ${FS.delay} linear infinite`,
+                  }}
+               />
+            ))}
+          </div>
             <style>{`
                 @keyframes twinkle {
                     from { opacity: 0.3; }
@@ -94,6 +126,22 @@ const MainBackground = () => {
                 @keyframes driftCloud {
                 from { transform: translateX(-200px); }
                 to   { transform: translateX(110vw);  }
+                }
+                @keyframes starfall {
+                from {
+                  transform: translate(100%, 100%) rotate(-90deg);
+                  opacity: 0;
+                }
+                20% {
+                  opacity: 1;
+                }
+                80% {
+                  opacity: 0;
+                }
+                to {
+                  transform: translate(0, 0) rotate(960deg);
+                  opacity: 0;
+                }
                 }
             `}</style>
         </>
