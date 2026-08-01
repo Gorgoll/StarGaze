@@ -43,20 +43,12 @@ export const CLOUDS: Cloud[] = Array.from({ length: 30 }, (_, i) => ({
 
 interface Falling_Star {
     id: number;
-    left: string;
-    top: string;
     scale: number;
-    speed: string;
     delay: string;
-    opacity: number;
 }
-
-export const FALLING_STAR: Falling_Star[] = Array.from({ length: 1},(_, i) => ({
+// only 1 star might change later
+export const FALLING_STAR: Falling_Star[] = Array.from({ length: 1 }, (_, i) => ({
     id: i,
-    left:     `${Math.random() * 10}%`,
-    top:     `${Math.random() * 10}%`,
     scale:   0.5 + Math.random() * 1.5,
-    speed:   `${(Math.random() * 3).toFixed(2)}s`,
-    delay:   `${(Math.random() * 3).toFixed(2)}s`,
-    opacity: 0.4 + Math.random() * 0.5,
+    delay:   `${(Math.random() * 10).toFixed(2)}s`,
 }));

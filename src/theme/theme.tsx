@@ -8,6 +8,7 @@ interface ThemeKeyframe {
     text: string;
     stars: number;
     clouds: number;
+    falling_stars: number;
 }
 
 export interface InterpolatedTheme {
@@ -16,24 +17,25 @@ export interface InterpolatedTheme {
     text: string;
     stars: number;
     clouds: number;
+    falling_stars: number;
 }
 
 export const THEMES: ThemeKeyframe[] = [
-    { h: 0,  skyTop: '#0a0a1a', skyBot: '#1a1a3a', text: '#c8d8ff', stars: 1   , clouds: 0},
-    { h: 4,  skyTop: '#0d0d25', skyBot: '#1f1545', text: '#c8d8ff', stars: 0.9 , clouds: 2},
-    { h: 5,  skyTop: '#1a0a2a', skyBot: '#5a2060', text: '#ffcfef', stars: 0.5 , clouds: 10},
-    { h: 6,  skyTop: '#2a1040', skyBot: '#d05060', text: '#ffe8d0', stars: 0.1 , clouds: 15},
-    { h: 7,  skyTop: '#5a3070', skyBot: '#ff9060', text: '#fff0e0', stars: 0   , clouds: 30},
-    { h: 8,  skyTop: '#3070b0', skyBot: '#70b0e0', text: '#fff8f0', stars: 0  , clouds: 30},
-    { h: 10, skyTop: '#1a5090', skyBot: '#5090d0', text: '#fff8f0', stars: 0  , clouds: 30},
-    { h: 12, skyTop: '#0a4080', skyBot: '#4080c0', text: '#ffffff', stars: 0  , clouds: 30},
-    { h: 15, skyTop: '#1550a0', skyBot: '#4590d0', text: '#f0f8ff', stars: 0  , clouds: 30},
-    { h: 17, skyTop: '#2060a0', skyBot: '#8060a0', text: '#ffe8d0', stars: 0  , clouds: 30},
-    { h: 18, skyTop: '#703050', skyBot: '#e07040', text: '#ffd0c0', stars: 0.1 , clouds: 22},
-    { h: 19, skyTop: '#401030', skyBot: '#903060', text: '#ffc0d8', stars: 0.3 , clouds: 10},
-    { h: 20, skyTop: '#200820', skyBot: '#502050', text: '#d0c0ff', stars: 0.6 , clouds: 4},
-    { h: 21, skyTop: '#100815', skyBot: '#301840', text: '#c0c8ff', stars: 0.8 , clouds: 2},
-    { h: 23, skyTop: '#0a0a1a', skyBot: '#1a1a3a', text: '#c8d8ff', stars: 1   , clouds: 0},
+    { h: 0,  skyTop: '#0a0a1a', skyBot: '#1a1a3a', text: '#c8d8ff', stars: 1   , clouds: 0, falling_stars: 1},
+    { h: 4,  skyTop: '#0d0d25', skyBot: '#1f1545', text: '#c8d8ff', stars: 0.9 , clouds: 2, falling_stars: 1},
+    { h: 5,  skyTop: '#1a0a2a', skyBot: '#5a2060', text: '#ffcfef', stars: 0.5 , clouds: 10, falling_stars: 0},
+    { h: 6,  skyTop: '#2a1040', skyBot: '#d05060', text: '#ffe8d0', stars: 0.1 , clouds: 15, falling_stars: 0},
+    { h: 7,  skyTop: '#5a3070', skyBot: '#ff9060', text: '#fff0e0', stars: 0   , clouds: 30, falling_stars: 0},
+    { h: 8,  skyTop: '#3070b0', skyBot: '#70b0e0', text: '#fff8f0', stars: 0  , clouds: 30, falling_stars: 0},
+    { h: 10, skyTop: '#1a5090', skyBot: '#5090d0', text: '#fff8f0', stars: 0  , clouds: 30, falling_stars: 0},
+    { h: 12, skyTop: '#0a4080', skyBot: '#4080c0', text: '#ffffff', stars: 0  , clouds: 30, falling_stars: 0},
+    { h: 15, skyTop: '#1550a0', skyBot: '#4590d0', text: '#f0f8ff', stars: 0  , clouds: 30, falling_stars: 0},
+    { h: 17, skyTop: '#2060a0', skyBot: '#8060a0', text: '#ffe8d0', stars: 0  , clouds: 30, falling_stars: 0},
+    { h: 18, skyTop: '#703050', skyBot: '#e07040', text: '#ffd0c0', stars: 0.1 , clouds: 22, falling_stars: 0},
+    { h: 19, skyTop: '#401030', skyBot: '#903060', text: '#ffc0d8', stars: 0.3 , clouds: 10, falling_stars: 0},
+    { h: 20, skyTop: '#200820', skyBot: '#502050', text: '#d0c0ff', stars: 0.6 , clouds: 4, falling_stars: 0},
+    { h: 21, skyTop: '#100815', skyBot: '#301840', text: '#c0c8ff', stars: 0.8 , clouds: 2, falling_stars: 1},
+    { h: 23, skyTop: '#0a0a1a', skyBot: '#1a1a3a', text: '#c8d8ff', stars: 1   , clouds: 0, falling_stars: 1},
 ];
 
 // Period of the day

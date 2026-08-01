@@ -18,6 +18,7 @@ function getThemeAtHour(h: number): InterpolatedTheme {
         text:    LinearInterpolation.lerpColor(lo.text,   hi.text,   t),
         stars:   LinearInterpolation.lerp(lo.stars, hi.stars, t),
         clouds:  LinearInterpolation.lerp(lo.clouds, hi.clouds, t),
+        falling_stars: LinearInterpolation.lerp(lo.falling_stars, hi.falling_stars, t),
     };
 }
 
@@ -85,6 +86,7 @@ const MainBackground = () => {
                 </div>
             ))}
           </div>
+          {/* Falling stars */}
           <div
              style={{
                position: "fixed",
@@ -102,23 +104,27 @@ const MainBackground = () => {
                   key={FS.id}
                   style={{
                     position: "absolute",
-                    left: "100vh",
-                    top: "50vh",
-                    width: "0.15rem",
-                    height: "30rem",
-                    borderRadius: "999px",
-                    background:
-                       "linear-gradient(to bottom, white, transparent)",
-                    opacity: FS.opacity,
-                    rotate: "120deg",
-                    scale: FS.scale,
-                    transformOrigin: "center",
-                    animation: `starfall ${FS.speed} ${FS.delay} linear infinite`,
+                    left: "20vw",
+                    top: "20vh",
+                    animation: `starfall 5s ${FS.delay} linear infinite`,
                   }}
-               />
+               >
+                 <div
+                    style={{
+                      width: "0.15rem",
+                      height: "30rem",
+                      borderRadius: "999px",
+                      background:
+                         "linear-gradient(to top, white, transparent)",
+                      opacity: theme.falling_stars,
+                      transform: `rotate(-45deg) scale(${FS.scale})`,
+                      transformOrigin: "center",
+                    }}
+                 />
+               </div>
             ))}
           </div>
-            <style>{`
+          <style>{`
                 @keyframes twinkle {
                     from { opacity: 0.3; }
                     to   { opacity: 1; }
@@ -128,18 +134,22 @@ const MainBackground = () => {
                 to   { transform: translateX(110vw);  }
                 }
                 @keyframes starfall {
-                from {
-                  transform: translate(100%, 100%) rotate(-90deg);
+                0% {
+                  transform: translate(0, 0);
                   opacity: 0;
                 }
-                20% {
+                1% {
                   opacity: 1;
                 }
-                80% {
+                4% {
+                  transform: translate(60vw, 60vh);
+                  opacity: 1;
+                }
+                5% {
                   opacity: 0;
                 }
-                to {
-                  transform: translate(0, 0) rotate(960deg);
+                100% {
+                  transform: translate(60vw, 60vh);
                   opacity: 0;
                 }
                 }
